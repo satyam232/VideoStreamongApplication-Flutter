@@ -6,15 +6,15 @@ const UserController = {
             const userData = req.body;
             const existing = await UserModel.findOne({ movieurl: userData.movieurl });
             if (existing) {
-                return res.json({ success: false, message: "This movie is already present" }); // Corrected 'sucess' to 'success'
+                return res.json({ success: false, message: "This movie is already present" }); 
             }
             const newUser = new UserModel(userData);
             const savedUser = await newUser.save();
 
-            return res.json({ success: true, data: savedUser }); // Corrected 'sucess' to 'success'
+            return res.json({ success: true, data: savedUser });
 
         } catch (ex) {
-            return res.json({ success: false, message: ex }); // Corrected 'sucess' to 'success'
+            return res.json({ success: false, message: ex }); 
         }
     },
 
